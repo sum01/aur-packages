@@ -7,7 +7,7 @@ pkgdesc="Vcash cryptocurrency installer (includes wallet and GUI)"
 # If someone can confirm compability with other platforms then remember to update this & any dependancies
 arch=('x86_64')
 url="https://vcash.info/"
-license=('GPL-3.0' 'unknown')
+license=('AGPL-3.0' 'unknown')
 depends=('openssl' 'db' 'boost' 'wxpython' 'qrencode')
 makedepends=('git' 'screen' 'curl' 'gcc')
 source=("https://github.com/openvcash/vcash/archive/${pkgver}.tar.gz" "https://github.com/openvcash/wxVcashGUI/archive/master.zip")
@@ -24,13 +24,10 @@ build() {
 package_vcash() {
 	backup=("~/.vcash/data" "~/.vcash/backup")
 	install=vcash.install
-	cd "~/.vcash/"
 	
-  make DESTDIR="~/.vcash/" install
+  	make DESTDIR="~/.vcash/" install
 }
 
 package_wxvcashgui() {
-	cd "~/.vcash/src/"
-	
-  make DESTDIR="~/.vcash/src/" install
+ 	make DESTDIR="~/.vcash/src/" install
 }
