@@ -18,8 +18,6 @@ pre_upgrade(){
 }
 
 pre_remove(){
-	echo "Files have been flagged for removal, backing up your data and backup folders from ~/.vcash/ to Downloads/vcash_backups/"
-	mkdir -p Downloads/vcash_backups/
-	cp -rf ~/.vcash/data Downloads/vcash_backups/data/
-	cp -rf ~/.vcash/backup Downloads/vcash_backups/backup/
+	echo "Backing up your folders from ~/.vcash/ to Downloads/vcash-removal-backup/"
+	cp -r -i ~/.vcash/data ~/.vcash/backup Downloads/vcash-removal-backup/
 }
