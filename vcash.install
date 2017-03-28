@@ -1,38 +1,19 @@
 #!/bin/bash
 
-#---------------------------------------
-#Maintainer: Sum1
-#This is the linux install/update script edited for minimalism & AUR usage
-#Original code from xCore https://github.com/xCoreDev/vcash-scripts
-#Forked to https://github.com/openvcash/vcash-scripts
-#---------------------------------------
-
-#			Directory layout
-#~/.vcash
-#	/src	|	Contains main files & wxvcashgui
-#	/data	|	Contains blockchain & other stuff
-#	/backup	|	Contains wallet backups
-
 pre_install(){
-	if [ ! -f "~/.vcash/"]; then
-		echo -n "Creating new folders..."
-		mkdir -p ~/.vcash/src
-		mkdir -p ~/.vcash/data
-		mkdir -p ~/.vcash/backup
-	fi
+	echo "Creating vcash folder structure..."
+	mkdir -p ~/.vcash/{src,data,backup}/
 }
-
-post_install(){}
 
 pre_upgrade(){
 	if [ -f "~/.vcash/src/"]; then
-		echo -n "Deleting old src files..."
-		rm -rf ~/.vcash/src/ 
+		echo "Deleting old ~/.vcash/src/ files..."
+		rm -rf ~/.vcash/src/
 	fi
+	mkdir -p ~/.vcash/src/
 }
 
-post_upgrade(){}
-
-pre_remove(){}
-
-post_remove(){}
+pre_remove(){
+	echo "Backing up your folders from ~/.vcash/ to ~/.vcash-removal-backup/"
+	cp -r -i ~/.vcash/data ~/.vcash/backup ~/.vcash-removal-backup/
+}
