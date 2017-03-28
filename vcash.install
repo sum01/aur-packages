@@ -36,22 +36,3 @@ post_upgrade(){}
 pre_remove(){}
 
 post_remove(){}
-
-
-
-########################################################
-
-
-
-#Removes build.log if it exists
-if [ -f "~/.vcash/build.log"]; then
-	rm -f ~/.vcash/build.log
-	echo "$HOME/.vcash/build.log deleted"
-fi
-
-#Removes src folder if it exists
-if [ -f "~/.vcash/src"]; then
-	rm -Rf ~/.vcash/src/
-	echo "$HOME/.vcash/src/ deleted"
-fi
-
