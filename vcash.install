@@ -1,31 +1,25 @@
 #!/bin/bash
 
-#			Directory layout
-#~/.vcash
-#	/src	|	Contains main files & wxvcashgui
-#	/data	|	Contains blockchain & other stuff
-#	/backup	|	Contains wallet backups
-
 pre_install(){
 	if [ ! -f "~/.vcash/"]; then
-		echo -n "Creating new folders..."
-		mkdir -p ~/.vcash/src
-		mkdir -p ~/.vcash/data
-		mkdir -p ~/.vcash/backup
+		echo "Creating new folders..."
+		mkdir -p ~/.vcash/src/
+		mkdir -p ~/.vcash/data/
+		mkdir -p ~/.vcash/backup/
 	fi
 }
-
-post_install(){}
 
 pre_upgrade(){
 	if [ -f "~/.vcash/src/"]; then
-		echo -n "Deleting old src files..."
+		echo "Deleting old src files..."
 		rm -rf ~/.vcash/src/ 
+		mkdir -p ~/.vcash/src/
 	fi
 }
 
-post_upgrade(){}
-
-pre_remove(){}
-
-post_remove(){}
+pre_remove(){
+	echo "Files have been flagged for removal, backing up your data and backup folders from ~/.vcash/ to Downloads/vcash_backups/"
+	mkdir -p Downloads/vcash_backups/
+	cp -rf ~/.vcash/data Downloads/vcash_backups/data/
+	cp -rf ~/.vcash/backup Downloads/vcash_backups/backup/
+}
