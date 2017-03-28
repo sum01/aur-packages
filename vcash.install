@@ -1,12 +1,5 @@
 #!/bin/bash
 
-#---------------------------------------
-#Maintainer: Sum1
-#This is the linux install/update script edited for minimalism & AUR usage
-#Original code from xCore https://github.com/xCoreDev/vcash-scripts
-#Forked to https://github.com/openvcash/vcash-scripts
-#---------------------------------------
-
 #			Directory layout
 #~/.vcash
 #	/src	|	Contains main files & wxvcashgui
