@@ -1,19 +1,19 @@
 #!/bin/bash
 
 pre_install(){
-	echo "Creating vcash folder structure..."
-	mkdir -p ~/.vcash/{src,data,backup}/
+	echo "Creating vcash folder structure"
+	mkdir -p ~/vcash/
 }
 
 pre_upgrade(){
-	if [ -f "~/.vcash/src/"]; then
-		echo "Deleting old ~/.vcash/src/ files..."
-		rm -rf ~/.vcash/src/
+	if [ -f "~/vcash/src/"]; then
+		echo "Deleting old ~/vcash/src/ files"
+		rm -rf ~/vcash/src/
 	fi
-	mkdir -p ~/.vcash/src/
+	mkdir -p ~/vcash/src/
 }
 
 pre_remove(){
-	echo "Backing up your folders from ~/.vcash/ to ~/.vcash-removal-backup/"
-	cp -r -i ~/.vcash/data ~/.vcash/backup ~/.vcash-removal-backup/
+	echo "Backing up your folders from ~/vcash/ to ~/vcash-removal-backup/"
+	cp -r -i ~/vcash/data ~/vcash/backup ~/vcash-removal-backup/
 }
