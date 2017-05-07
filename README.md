@@ -1,2 +1,2 @@
 # General   
-This is where I'll upload any of my Arch User Repository PKGBUILD's.
+This is where I'll upload any of my Arch User Repository stuff.
