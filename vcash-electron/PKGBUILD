@@ -1,0 +1,20 @@
+# Maintainer: Sum1 https://github.com/sum01
+pkgname=('vcash-electron')
+pkgver=0.28.0 # this version number is from package.json
+pkgrel=1
+pkgdesc="Multi-platform and multi-node GUI for Vcash."
+arch=('x86_64')
+url="https://github.com/whphhg/vcash-electron"
+license=('GPL3')
+depends=('vcash' 'nodejs' 'npm')
+makedepends=('git')
+backup=('~/vcash/backups/')
+source=("https://github.com/whphhg/vcash-electron.git")
+sha256sums=('SKIP') # SKIP is added because there are no snapshots yet
+
+package() {
+	mkdir -p $pkgdir/~/vcash/$pkgname/
+ 	cp -r -u $srcdir/$pkgname $pkgdir/~/vcash/$pkgname
+	cd $pkgdir/~/vcash/$pkgname
+	npm install
+}
