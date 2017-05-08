@@ -1,6 +1,14 @@
 # Tribler
 PKGBUILD for building the Tribler client via the Arch User Repository.  
 Note that this is not the PKGBUILD in the AUR, but my improvement on it.  
-  
+
 https://www.tribler.org  
 https://github.com/Tribler/tribler
+
+## PKGBUILD Status  
+- [x] Tested and complete  
+
+*Note:* An issue unrelated to my PKGBUILD will cause you to potentially not ever download torrents if you have 1-3 hops enabled -- [Ref](https://forum.tribler.org/t/tribler-7-release-candidate-1-please-test/3988/3)
+
+### To-do List
+- [ ] `abc.conf` added to the backup array, once I find where it's located/placed -- [Ref](https://www.tribler.org/DotTriblerFiles/)
