@@ -1,5 +1,4 @@
-# Maintainer: xantares
-# Contributor: Sum1 https://github.com/sum01
+# Maintainer: Sum1 https://github.com/sum01
 pkgname=tribler
 pkgver=v7.0.0_rc1
 pkgrel=1
@@ -12,6 +11,7 @@ source=("https://github.com/Tribler/tribler/releases/download/${pkgver//_/-}/Tri
 sha256sums=('b825806195c39cdbb2e318d24a0a8b0242800607bc74505f3ade8cc11e7c28ad')
 
 package() {
+  # needs a backup('nameOfTriblerFileResponsibleForYourTorrentIdentiy')
   mkdir -p $pkgdir/usr/{bin,share/{applications,pixmaps}}/
   cp -r -u $srcdir/tribler $pkgdir/usr/share/
   cp -r -u $srcdir/tribler/debian/bin/tribler $pkgdir/usr/bin/
