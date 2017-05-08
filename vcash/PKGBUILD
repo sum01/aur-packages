@@ -3,18 +3,21 @@ pkgname=('vcash')
 pkgver=0.6.0.3
 pkgrel=1
 pkgdesc="A decentralized currency for the internet."
-arch=('x86_64')
+arch=('any')
 url="https://github.com/openvcash/vcash"
 license=('AGPL3')
-depends=('openssl' 'db' 'boost')
-makedepends=('screen' 'curl' 'gcc<=5.3.0-5') # Remove version from GCC when this issue is fixed: https://github.com/openvcash/vcash/issues/14
-backup=('~/vcash/backups/' '~/.vcash/backups/')
-source=("https://github.com/openvcash/vcash/archive/${pkgver}.tar.gz")
-sha256sums=('7b67e98bb250b8e6c03462f31f403a8ffb5a84366c86bf7f05bd0bd3ab03617b') # SKIP is added for vcash-electron because it does not have snapshots yet
-
+depends=('openssl' 'db' 'boost') # While versions are listed as required for these, I'll leave them as-is until it breaks
+makedepends=('screen' 'curl' 'gcc>=4.8.0' 'gcc<=5.3.0-5') # Fix versions from GCC when this issue is resolved: https://github.com/openvcash/vcash/issues/14 && Git might not be needed, unsure
+backup=('~/vcash/backup/' '~/.vcash/backup/')
+source=("https://github.com/openvcash/vcash/archive/${pkgver}.tar.gz") # maybe add the links to openssl/db/boost from linux scripts to source()
+sha256sums=('7b67e98bb250b8e6c03462f31f403a8ffb5a84366c86bf7f05bd0bd3ab03617b')
+# If this merge request ever gets commited then I need to rework this: https://github.com/openvcash/vcash/pull/4
 package() {
-	# This is where CMake would go, if this merge request ever gets commited: https://github.com/openvcash/vcash/pull/4
-	# I'll get back to this later, although it might be mostly unnecessary if that pull is ever merged
-
-	# Need to run through the linux install script, and rehash it into something that works here.
+  mkdir -p $pkgdir/~/$pkgname/{backup,src/{deps/{openssl,db,boost},coin/test}} # While the linux install scripts want openssl/db/boost they shouldn't be necessary with the way dependencies work in a pkg
+  cp -r $srcdir/$pkgname/ $pkgdir/~/$pkgname
+  cp -r /usr/bin/bjam $pkgdir/~/$pkgname/src/coin/test # This might trigger an error for not being allowed? Fix later
+  cd $pkgdir/~/$pkgname/src/coin/test
+  $pkgdir/~/$pkgname/src/deps/boost/bjam -j$job toolset=gcc cxxflags=-std=gnu++0x release # Who knows if this will even work...
+  strip $pkgdir/~/$pkgname/src/coin/test/bin/gcc-*/release/link-static/stack # Again, no idea if this'll work
+  cp -r $pkgdir/~/$pkgname/src/coin/test/bin/gcc-*/release/link-static/stack $pkgdir/~/$pkgname/
 }

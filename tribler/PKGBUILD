@@ -4,18 +4,18 @@ pkgver=v7.0.0_rc1
 pkgrel=1
 pkgdesc="Privacy enhanced BitTorrent client with P2P content discovery."
 url="https://github.com/Tribler/tribler"
-arch=('x86_64')
+arch=('any')
 license=('LGPL3')
 depends=('libsodium' 'libtorrent-rasterbar' 'python2-pyqt5' 'qt5-svg' 'phonon-qt5-vlc' 'python2-apsw' 'python2-cherrypy' 'python2-cryptography' 'python2-decorator' 'python2-feedparser' 'python2-chardet' 'python2-m2crypto' 'python2-netifaces' 'python2-plyvel' 'python2-requests' 'python2-twisted' 'python2-configobj' 'python2-matplotlib')
+# needs a backup() for the file responsible for whatever that experimental identity that tracks used/shared data
 source=("https://github.com/Tribler/tribler/releases/download/${pkgver//_/-}/Tribler-${pkgver//_/-}.tar.xz")
 sha256sums=('b825806195c39cdbb2e318d24a0a8b0242800607bc74505f3ade8cc11e7c28ad')
 
 package() {
-  # needs a backup('nameOfTriblerFileResponsibleForYourTorrentIdentiy')
   mkdir -p $pkgdir/usr/{bin,share/{applications,pixmaps}}/
-  cp -r -u $srcdir/tribler $pkgdir/usr/share/
-  cp -r -u $srcdir/tribler/debian/bin/tribler $pkgdir/usr/bin/
-  cp -r -u $srcdir/tribler/Tribler/Main/Build/Ubuntu/tribler.desktop ${pkgdir}/usr/share/applications/
-  cp -r -u $srcdir/tribler/Tribler/Main/Build/Ubuntu/tribler.xpm ${pkgdir}/usr/share/pixmaps/
-  cp -r -u $srcdir/tribler/Tribler/Main/Build/Ubuntu/tribler_big.xpm ${pkgdir}/usr/share/pixmaps/
+  cp -r $srcdir/tribler $pkgdir/usr/share/
+  cp -r $srcdir/tribler/debian/bin/tribler $pkgdir/usr/bin/
+  cp -r $srcdir/tribler/Tribler/Main/Build/Ubuntu/tribler.desktop ${pkgdir}/usr/share/applications/
+  cp -r $srcdir/tribler/Tribler/Main/Build/Ubuntu/tribler.xpm ${pkgdir}/usr/share/pixmaps/
+  cp -r $srcdir/tribler/Tribler/Main/Build/Ubuntu/tribler_big.xpm ${pkgdir}/usr/share/pixmaps/
 }
