@@ -1,5 +1,5 @@
 # Tribler
-PKGBUILD for building the Tribler client via the Arch User Repository.  
+PKGBUILD for building the Tribler client.  
 Note that this is not the PKGBUILD in the AUR, but my improvement on it.  
 
 https://www.tribler.org  

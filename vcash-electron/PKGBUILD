@@ -1,6 +1,6 @@
 # Maintainer: Sum1 https://github.com/sum01
 pkgname=('vcash-electron')
-pkgver=0.28.0 # this version number is from package.json -- Might need to make it something like 'beta' and use epoch to force updates as needed
+pkgver=0.29.0 # this version number is from package.json
 pkgrel=1
 pkgdesc="Multi-platform and multi-node GUI for Vcash."
 arch=('any')

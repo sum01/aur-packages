@@ -1,5 +1,5 @@
 # Vcash
-PKGBUILD for building the Vcash cryptocurrency wallet via the Arch User Repository.  
+PKGBUILD for building the Vcash cryptocurrency wallet.  
 
 https://github.com/openvcash/vcash  
 
