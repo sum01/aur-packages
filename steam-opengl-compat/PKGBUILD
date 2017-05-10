@@ -1,0 +1,31 @@
+# Maintainer: Sum1 https://github.com/sum01
+pkgname=steam-opengl-compat
+pkgver=4.5
+pkgrel=1
+pkgdesc="Shortcut to run Steam with a newer OpenGL version."
+url="https://github.com/sum01/aur-packages"
+arch=('x86_64')
+license=('custom:Unlicense')
+depends=('steam' 'mesa')
+source=("https://unlicense.org/UNLICENSE")
+sha256sums=('7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c')
+
+package() {
+  cd $srcdir/
+  touch $pkgname.sh
+  echo '#!/bin/bash' > $pkgname.sh
+  echo "MESA_GL_VERSION_OVERRIDE=${pkgver}COMPAT steam" >> $pkgname.sh
+  touch $pkgname.desktop
+  echo '[Desktop Entry]' > $pkgname.desktop
+  echo 'Name=Steam OpenGL Compat' >> $pkgname.desktop
+  echo "Comment=Launches Steam with OpenGL version ${pkgver}" >> $pkgname.desktop
+  echo "Exec=sh -c 'cd /usr/lib/$pkgname/; $pkgname.sh'" >> $pkgname.desktop
+  echo 'Icon=steam' >> $pkgname.desktop
+  echo 'Terminal=false' >> $pkgname.desktop
+  echo 'Type=Application' >> $pkgname.desktop
+  echo 'Categories=Game;' >> $pkgname.desktop
+  mkdir -p $pkgdir/usr/{lib/$pkgname,share/{licenses/$pkgname,applications}}/
+  cp -r $srcdir/UNLICENSE $pkgdir/usr/share/licenses/$pkgname
+  cp -r $srcdir/$pkgname.desktop $pkgdir/usr/share/applications
+  cp -r $srcdir/$pkgname.sh $pkgdir/usr/lib/$pkgname
+}

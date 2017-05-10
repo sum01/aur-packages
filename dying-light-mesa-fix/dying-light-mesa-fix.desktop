@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Dying Light Mesa Fix
-Comment=Launches Dying Light with custom OpenGL version string
-Exec=/path/to/ftl/FTL
-Icon=/usr/share/pixmaps/dl_linux_96x96.png
-Path=/path/to/ftl
-Terminal=false
-Type=Application
-Categories=Game;
