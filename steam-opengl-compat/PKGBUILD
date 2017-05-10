@@ -19,7 +19,7 @@ package() {
   echo '[Desktop Entry]' > $pkgname.desktop
   echo 'Name=Steam OpenGL Compat' >> $pkgname.desktop
   echo "Comment=Launches Steam with OpenGL version ${pkgver}" >> $pkgname.desktop
-  echo "Exec=sh -c 'cd /usr/lib/$pkgname/; $pkgname.sh'" >> $pkgname.desktop
+  echo "Exec=sh /usr/lib/$pkgname/$pkgname.sh" >> $pkgname.desktop
   echo 'Icon=steam' >> $pkgname.desktop
   echo 'Terminal=false' >> $pkgname.desktop
   echo 'Type=Application' >> $pkgname.desktop
