@@ -9,3 +9,4 @@ https://github.com/whphhg/vcash-electron
 
 ### To-do list  
 - [ ] Test the PKGBUILD once `vcash` is uploaded to the AUR
+- [ ] Implement releases once https://github.com/whphhg/vcash-electron/issues/7 is fixed, instead of pulling the whole repo.

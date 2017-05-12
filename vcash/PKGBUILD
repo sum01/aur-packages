@@ -7,7 +7,7 @@ arch=('any')
 url="https://github.com/openvcash/vcash"
 license=('AGPL3')
 depends=('openssl' 'db' 'boost') # While versions are listed as required for these, I'll leave them as-is until it breaks
-makedepends=('screen' 'curl' 'gcc>=4.8.0' 'gcc<=5.3.0-5') # Fix versions from GCC when this issue is resolved: https://github.com/openvcash/vcash/issues/14 && Git might not be needed, unsure
+makedepends=('screen' 'curl' 'gcc>=4.8.0' 'gcc<=5.3.0') # Fix versions from GCC when this issue is resolved: https://github.com/openvcash/vcash/issues/14 && Git might not be needed, unsure
 backup=('~/vcash/backup/' '~/.vcash/backup/')
 source=("https://github.com/openvcash/vcash/archive/${pkgver}.tar.gz") # maybe add the links to openssl/db/boost from linux scripts to source()
 sha256sums=('7b67e98bb250b8e6c03462f31f403a8ffb5a84366c86bf7f05bd0bd3ab03617b')

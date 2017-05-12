@@ -1,7 +1,7 @@
 # Steam OpenGL Compat
 PKGBUILD for launching Steam with a modified OpenGL version string.  
 
-I will keep updating to whatever the highest OpenGL version is that works with Volcanic-Islands GPU's.
+I will keep updating to whatever the highest OpenGL version is that works with newer cards.
 
 ## PKGBUILD Status  
 - [x] Tested and complete  

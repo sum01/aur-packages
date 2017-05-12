@@ -1,13 +1,13 @@
 # Maintainer: Sum1 https://github.com/sum01
 pkgname=('vcash-electron')
-pkgver=0.29.0 # this version number is from package.json
+pkgver=0.30.0 # this version number is from package.json
 pkgrel=1
 pkgdesc="Multi-platform and multi-node GUI for Vcash."
 arch=('any')
 url="https://github.com/whphhg/vcash-electron"
 license=('GPL3')
 depends=('vcash' 'nodejs' 'npm')
-makedepends=('git')
+#makedepends=('git')
 backup=('~/vcash/backup/')
 source=("https://github.com/whphhg/vcash-electron.git")
 sha256sums=('SKIP') # SKIP is added because there are no snapshots yet
