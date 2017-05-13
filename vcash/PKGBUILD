@@ -3,16 +3,16 @@ pkgname=('vcash')
 pkgver=0.6.0.3
 pkgrel=1
 pkgdesc="A decentralized currency for the internet."
-arch=('any')
+arch=('x86_64')
 url="https://github.com/openvcash/vcash"
 license=('AGPL3')
 depends=('screen')
 makedepends=('curl' 'make')
 backup=('~/vcash/backup/' '~/.vcash/backup/') # ~/.vcash/backup might be unnecessary, figure it out later
-source=('https://git.archlinux.org/svntogit/packages.git/snapshot/packages-f201309ce0fbd907e002ca839d661be58f2147ed.tar.xz'
+source=('https://git.archlinux.org/svntogit/packages.git/snapshot/packages-f201309ce0fbd907e002ca839d661be58f2147ed.tar.xz' #
         "https://github.com/openvcash/vcash/archive/${pkgver}.tar.gz"
         'https://www.openssl.org/source/openssl-1.0.2k.tar.gz'
-        'https://github.com/sum01/aur-packages/tree/master/vcash/db-6.1.29.NC.tar.gz' # Using my own git instead of oracle's link since theirs has out-of-date certs
+        'https://github.com/sum01/aur-packages/raw/master/vcash/db-6.1.29.NC.tar.gz' # Using my own git instead of oracle's link since theirs has out-of-date certs
         'https://sourceforge.net/projects/boost/files/boost/1.53.0/boost_1_53_0.tar.gz')
 sha256sums=('bebdfc94877fc368b5e53ea18647c36e9a7f19ef65641c9f335333b082fc8a45'
             '7b67e98bb250b8e6c03462f31f403a8ffb5a84366c86bf7f05bd0bd3ab03617b'
