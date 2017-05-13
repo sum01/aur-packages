@@ -7,7 +7,8 @@ https://github.com/Tribler/tribler
 
 ## PKGBUILD Status  
 - [x] Tested
-- [x] Functional
+- [ ] Functional
+- [x] Functional with errors
 - [ ] Non-functional
 
 **Note:** An issue unrelated to my PKGBUILD will cause you to potentially not be able to download torrents if you have 1-3 hops enabled -- [Ref](https://forum.tribler.org/t/tribler-7-release-candidate-1-please-test/3988/3)
