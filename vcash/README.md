@@ -8,4 +8,5 @@ https://github.com/openvcash/vcash
 - [x] Untested and probably non-functional
 
 ### To-do list  
-- [ ] Many things...
+- [ ] Rework PKGBUILD when [this issue](https://github.com/openvcash/vcash/pull/4) is commited (fix/remove sources to deps, add actual dependencies instead).
+- [ ] Fix versions from GCC when [this issue](https://github.com/openvcash/vcash/issues/14) is resolved.
