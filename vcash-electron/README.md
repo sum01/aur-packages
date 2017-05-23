@@ -7,4 +7,4 @@ https://github.com/whphhg/vcash-electron
 - [x] Tested and Functional
 - [ ] Untested and Non-functional
 
-I haven't found any issues with
+I haven't found any issues, should be good to go.
