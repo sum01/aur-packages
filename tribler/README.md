@@ -1,5 +1,5 @@
 # Tribler
-PKGBUILD for building the Tribler client.  
+PKGBUILD for installing the Tribler client.  
 Note that this is not the PKGBUILD in the AUR, but my improvement on it.  
 
 https://www.tribler.org  
@@ -8,7 +8,7 @@ https://github.com/Tribler/tribler
 ## PKGBUILD Status  
 - [x] Tested
 - [ ] Functional
-- [x] Functional with errors
+- [x] Functional with errors (It seems relaunching causes crashes - unsure of how to fix atm)
 - [ ] Non-functional
 
 **Note:** An issue unrelated to my PKGBUILD will cause you to potentially not be able to download torrents if you have 1-3 hops enabled -- [Ref](https://forum.tribler.org/t/tribler-7-release-candidate-1-please-test/3988/3)

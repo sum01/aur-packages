@@ -1,7 +1,7 @@
 # Maintainer: Sum1 https://github.com/sum01
 pkgname=steam-opengl-compat
 pkgver=4.5
-pkgrel=2
+pkgrel=3
 pkgdesc="Shortcut to run Steam with a newer OpenGL version."
 url="https://github.com/sum01/aur-packages/tree/master/steam-opengl-compat"
 arch=('x86_64')
@@ -25,7 +25,7 @@ package() {
   echo 'Type=Application' >> $pkgname.desktop
   echo 'Categories=Game;' >> $pkgname.desktop
   mkdir -p $pkgdir/usr/{lib/$pkgname,share/{licenses/$pkgname,applications}}/
-  cp -r $srcdir/UNLICENSE $pkgdir/usr/share/licenses/$pkgname
-  cp -r $srcdir/$pkgname.desktop $pkgdir/usr/share/applications
-  cp -r $srcdir/$pkgname.sh $pkgdir/usr/lib/$pkgname
+  cp $srcdir/UNLICENSE $pkgdir/usr/share/licenses/$pkgname
+  cp $srcdir/$pkgname.desktop $pkgdir/usr/share/applications
+  cp $srcdir/$pkgname.sh $pkgdir/usr/lib/$pkgname
 }
