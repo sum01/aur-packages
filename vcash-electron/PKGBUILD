@@ -1,4 +1,4 @@
-# Maintainer: Sum1 https://github.com/sum01
+# Maintainer: Sum01 https://github.com/sum01
 pkgname=('vcash-electron')
 pkgver=0.31.3
 pkgrel=1
