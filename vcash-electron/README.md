@@ -1,10 +1,2 @@
-# Vcash-electron
-PKGBUILD for installing the Vcash-electron GUI, bundled with the Vcash cryptocurrency wallet.  
-
-https://github.com/whphhg/vcash-electron
-
-#### PKGBUILD Status  
-- [x] Tested and Functional
-- [ ] Untested and Non-functional
-
-I haven't found any issues, should be good to go.
+# General
+Vcash-electron [is now uploaded to the AUR](https://aur.archlinux.org/packages/vcash-electron/), and as mentioned in my main README, I will no longer maintain it here.
