@@ -1,31 +1,24 @@
 # Maintainer: Sum01 https://github.com/sum01
 pkgname=steam-opengl-compat
-pkgver=4.5
-pkgrel=3
+pkgver=4.5 # pkgver = OpenGL version used in steam-opengl-compat.sh
+pkgrel=4
 pkgdesc="Shortcut to run Steam with a newer OpenGL version."
 url="https://github.com/sum01/aur-packages/tree/master/steam-opengl-compat"
 arch=('x86_64')
 license=('custom:Unlicense')
-depends=('steam' 'mesa>=17.0.0')
-source=("https://unlicense.org/UNLICENSE")
-sha256sums=('7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c')
+depends=('steam-native-runtime' 'mesa>=17.0.0')
+source=("https://github.com/unlicense/unlicense.org/raw/master/static/UNLICENSE"
+        "steam-opengl-compat.sh"
+        "steam-opengl-compat.desktop")
+sha256sums=('7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c'
+            '03832e9b104ba67f42f885a6bc8e6c28489763de98d86a1f4520e523e324b9f0'
+            'b8b081fe15f05c24366eee4a2674a87c379e9bd0d65eb808a0eb38d73191b299')
 
 package() {
-  cd $srcdir/
-  touch $pkgname.sh
-  echo '#!/bin/bash' > $pkgname.sh
-  echo "MESA_GL_VERSION_OVERRIDE=${pkgver}COMPAT steam" >> $pkgname.sh
-  touch $pkgname.desktop
-  echo '[Desktop Entry]' > $pkgname.desktop
-  echo 'Name=Steam OpenGL Compat' >> $pkgname.desktop
-  echo "Comment=Launches Steam with OpenGL version ${pkgver}" >> $pkgname.desktop
-  echo "Exec=sh /usr/lib/$pkgname/$pkgname.sh" >> $pkgname.desktop
-  echo 'Icon=steam' >> $pkgname.desktop
-  echo 'Terminal=false' >> $pkgname.desktop
-  echo 'Type=Application' >> $pkgname.desktop
-  echo 'Categories=Game;' >> $pkgname.desktop
-  mkdir -p $pkgdir/usr/{lib/$pkgname,share/{licenses/$pkgname,applications}}/
-  cp $srcdir/UNLICENSE $pkgdir/usr/share/licenses/$pkgname
-  cp $srcdir/$pkgname.desktop $pkgdir/usr/share/applications
-  cp $srcdir/$pkgname.sh $pkgdir/usr/lib/$pkgname
+  chmod u+x $srcdir/$pkgname.sh
+  chmod u+x $srcdir/$pkgname.desktop
+  mkdir -p $pkgdir/usr/{bin,share/{licenses/$pkgname,applications}}/
+  mv $srcdir/UNLICENSE $pkgdir/usr/share/licenses/$pkgname/
+  mv $srcdir/$pkgname.desktop $pkgdir/usr/share/applications/
+  mv $srcdir/$pkgname.sh $pkgdir/usr/bin/
 }
