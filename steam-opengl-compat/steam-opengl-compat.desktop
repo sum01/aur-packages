@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.1
 Name=Steam (Compat)
-Comment=Launches Steam with a newer OpenGL version
+Comment=Launches steam-native-runtime using OpenGL version 4.5
 Exec=/usr/bin/steam-opengl-compat.sh %f
 Icon=steam
 Terminal=false

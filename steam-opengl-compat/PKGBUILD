@@ -1,10 +1,10 @@
 # Maintainer: Sum01 https://github.com/sum01
 pkgname=steam-opengl-compat
-pkgver=1 # Currently using OpenGL v4.5
+pkgver=1
 pkgrel=1
-pkgdesc="Shortcut to run Steam with a newer OpenGL version."
+pkgdesc="Runs steam-native-runtime using OpenGL version 4.5"
 url="https://github.com/sum01/aur-packages/tree/master/steam-opengl-compat"
-arch=('x86_64')
+arch=('i686' 'x86_64')
 license=('custom:Unlicense')
 depends=('steam-native-runtime' 'mesa>=17.0.0')
 source=("https://github.com/unlicense/unlicense.org/raw/master/static/UNLICENSE"
@@ -12,7 +12,7 @@ source=("https://github.com/unlicense/unlicense.org/raw/master/static/UNLICENSE"
 "steam-opengl-compat.desktop")
 sha256sums=('7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c'
 '03832e9b104ba67f42f885a6bc8e6c28489763de98d86a1f4520e523e324b9f0'
-'b8b081fe15f05c24366eee4a2674a87c379e9bd0d65eb808a0eb38d73191b299')
+'8e19bac3e8a5db5564926ec0f59b94cfe197e3fdcc414e0388d03764ed8339a5')
 package() {
   cd "$srcdir/"
   mkdir -p "$pkgdir"/usr/{bin,share/{licenses/$pkgname,applications}}/
