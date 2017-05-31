@@ -1,24 +1,23 @@
 # Maintainer: Sum01 https://github.com/sum01
 pkgname=tribler
 pkgver=7.0.0_rc2
-pkgrel=4
+pkgrel=1
 pkgdesc="Privacy enhanced BitTorrent client with P2P content discovery."
 url="https://github.com/Tribler/tribler"
 arch=('i686' 'x86_64')
 license=('LGPL3')
 depends=('libsodium' 'libtorrent-rasterbar' 'python2-pyqt5' 'qt5-svg' 'phonon-qt5-vlc' 'python2-apsw' 'python2-cherrypy' 'python2-cryptography' 'python2-decorator' 'python2-feedparser' 'python2-chardet' 'python2-m2crypto' 'python2-netifaces' 'python2-plyvel' 'python2-requests' 'python2-twisted' 'python2-configobj' 'python2-matplotlib')
-backup=('~/.Tribler/' '~/.config/TUDelft/')
 source=("https://github.com/Tribler/tribler/releases/download/v${pkgver//_/-}/Tribler-v${pkgver//_/-}.tar.xz"
-        "https://github.com/Tribler/tribler/raw/devel/TriblerGUI/images/tribler.png")
+"https://github.com/Tribler/tribler/raw/devel/TriblerGUI/images/tribler.png")
 sha256sums=('c253b01cbe118252cf858ddc31d239810afb186b28889a2d9c8589c299189b72'
-            '968f294e9403abe8c39c77fe922aa0a1a4bae9f082f8239e2d22ebf8c8de1a20')
-
+'968f294e9403abe8c39c77fe922aa0a1a4bae9f082f8239e2d22ebf8c8de1a20')
 package() {
-  mkdir -p $pkgdir/usr/{bin,share/{applications,pixmaps,icons/hicolor/48x48/apps}}/
-  cp $srcdir/tribler/debian/bin/tribler $pkgdir/usr/bin/
-  cp $srcdir/tribler/Tribler/Main/Build/Ubuntu/tribler.desktop $pkgdir/usr/share/applications/
-  mv $srcdir/tribler.png $pkgdir/usr/share/icons/hicolor/48x48/apps/
-  cp $srcdir/tribler/Tribler/Main/Build/Ubuntu/tribler.xpm $pkgdir/usr/share/pixmaps/
-  cp $srcdir/tribler/Tribler/Main/Build/Ubuntu/tribler_big.xpm $pkgdir/usr/share/pixmaps/
-  mv $srcdir/tribler $pkgdir/usr/share/
+  cd "$srcdir/"
+  mkdir -p "$pkgdir"/usr/{bin,share/{applications,pixmaps,icons/hicolor/48x48/apps}}/
+  install -m755 tribler/debian/bin/tribler "$pkgdir/usr/bin/"
+  install -m644 tribler/Tribler/Main/Build/Ubuntu/tribler.desktop "$pkgdir/usr/share/applications/"
+  install -m644 tribler.png "$pkgdir/usr/share/icons/hicolor/48x48/apps/"
+  install -m644 tribler/Tribler/Main/Build/Ubuntu/tribler.xpm "$pkgdir/usr/share/pixmaps/"
+  install -m644 tribler/Tribler/Main/Build/Ubuntu/tribler_big.xpm "$pkgdir/usr/share/pixmaps/"
+  install -m644 tribler "$pkgdir/usr/share/"
 }

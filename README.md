@@ -12,7 +12,9 @@ Each PKGBUILD has a README that I will put the current working/tested status in,
     *   If that command returns `error: package 'git' was not found` then run `sudo pacman -S git`  
 
 ### How To Use
-**Note:** replace `nameOfProject` with whatever PKGBUILD folder you want.   
+
+#### First Use
+**Before you run:** replace `nameOfProject` with whatever PKGBUILD folder you want.   
 *   Example: `cd aur-packages/tribler/`  -- **File paths are case-sensitive.**  
 
 Open your terminal, and run the following commands...
@@ -22,3 +24,13 @@ git clone https://github.com/sum01/aur-packages.git
 cd aur-packages/NameOfProjectHere/
 makepkg -csi PKGBUILD
 ```
+
+#### Updating Old Folder
+Run the following commands (assuming you still have the `aur-packages` folder) to update to the newest files, and download/update your package(s)...
+```
+cd ~/Downloads/aur-packages/
+git pull
+cd aur-packages/NameOfProjectHere/
+makepkg -csi PKGBUILD
+```
+Remember to Change the `NameOfProjectHere` to the name of the project you want.

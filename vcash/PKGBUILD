@@ -8,6 +8,7 @@ url="https://github.com/openvcash/vcash"
 license=('AGPL3')
 depends=('screen' 'gcc') # gcc=5.3.0 doesn't work (old/broken links inside of the official source list)
 makedepends=('curl' 'make') # 'sed'
+conflicts=('vcash-electron')
 backup=('~/vcash/backup/' '~/.vcash/backup/') # these need fixing
 source=(#'https://git.archlinux.org/svntogit/packages.git/snapshot/packages-f201309ce0fbd907e002ca839d661be58f2147ed.tar.xz'
         "https://github.com/openvcash/vcash/archive/${pkgver}.tar.gz"
