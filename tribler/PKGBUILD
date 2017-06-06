@@ -19,6 +19,5 @@ package() {
   install -m644 tribler.png "$pkgdir/usr/share/icons/hicolor/48x48/apps/"
   install -m644 tribler/Tribler/Main/Build/Ubuntu/tribler.xpm "$pkgdir/usr/share/pixmaps/"
   install -m644 tribler/Tribler/Main/Build/Ubuntu/tribler_big.xpm "$pkgdir/usr/share/pixmaps/"
-  chmod 644 tribler/
-  mv tribler/ "$pkgdir/usr/share/"
+  mv tribler "$pkgdir/usr/share/"
 }
