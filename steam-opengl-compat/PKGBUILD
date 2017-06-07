@@ -2,21 +2,21 @@
 pkgname=steam-opengl-compat
 pkgver=1
 pkgrel=1
-pkgdesc="Runs steam-native-runtime using OpenGL version 4.5"
+pkgdesc="Launch steam-native-runtime using a newer OpenGL version"
 url="https://github.com/sum01/aur-packages/tree/master/steam-opengl-compat"
 arch=('i686' 'x86_64')
 license=('custom:Unlicense')
 depends=('steam-native-runtime' 'mesa>=17.0.0')
 source=("https://github.com/unlicense/unlicense.org/raw/master/static/UNLICENSE"
-"steam-opengl-compat.sh"
-"steam-opengl-compat.desktop")
+"$pkgname.sh"
+"$pkgname.desktop")
 sha256sums=('7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c'
 '03832e9b104ba67f42f885a6bc8e6c28489763de98d86a1f4520e523e324b9f0'
-'8e19bac3e8a5db5564926ec0f59b94cfe197e3fdcc414e0388d03764ed8339a5')
+'a98712c58dd9266863a4ca3685b855887c3ef4ca69a8b1cc3eb82e92bba15696')
 package() {
   cd "$srcdir/"
   mkdir -p "$pkgdir"/usr/{bin,share/{licenses/$pkgname,applications}}/
   install -m644 UNLICENSE "$pkgdir/usr/share/licenses/$pkgname/"
   install -m644 $pkgname.desktop "$pkgdir/usr/share/applications/"
-  install -m755 $pkgname.sh "$pkgdir/usr/bin/"
+  install -m755 $pkgname.sh "$pkgdir/usr/bin/$pkgname"
 }

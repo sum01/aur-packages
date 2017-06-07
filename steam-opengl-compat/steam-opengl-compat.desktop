@@ -2,7 +2,7 @@
 Version=1.1
 Name=Steam (Compat)
 Comment=Launches steam-native-runtime using OpenGL version 4.5
-Exec=/usr/bin/steam-opengl-compat.sh %f
+Exec=steam-opengl-compat %f
 Icon=steam
 Terminal=false
 Type=Application
