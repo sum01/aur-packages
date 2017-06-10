@@ -4,7 +4,7 @@ pkgver=1
 pkgrel=1
 pkgdesc="Launch steam-native-runtime using a newer OpenGL version"
 url="https://github.com/sum01/aur-packages/tree/master/steam-opengl-compat"
-arch=('i686' 'x86_64')
+arch=('any')
 license=('custom:Unlicense')
 depends=('steam-native-runtime' 'mesa>=17.0.0')
 source=("https://github.com/unlicense/unlicense.org/raw/master/static/UNLICENSE"
