@@ -1,10 +1,10 @@
 <!-- Delete non-relevant parts if this is not a bug report -->
 
-#### Please, fill all relevant items: ####
+#### Please fill in all relevant items: ####
 
 ##### Name of PKGBUILD, pkgver, and pkgrel: #####
 
-##### Operating system and version: #####
+##### Linux version: #####
 
 ##### Expected behavior: #####
 
