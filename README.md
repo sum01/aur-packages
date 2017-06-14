@@ -2,7 +2,7 @@
 This is where I'll upload any of my Arch User Repository PKGBUILD's before they actually get uploaded to the AUR.  
 After the upload the the AUR I will most likely remove it from this git, as I don't want to maintain two separate git's.  
 
-Each PKGBUILD has a README that I will put the current working/tested status in, so please check it before submitting an issue.
+Most PKGBUILD's have a README that I will put the current working/tested status in, so please check it before submitting an issue.
 
 ## Usage  
 **Pre-requisites to use**  
