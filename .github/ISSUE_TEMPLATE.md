@@ -2,7 +2,7 @@
 
 #### Please fill in all relevant items: ####
 
-##### Name of PKGBUILD, pkgver, and pkgrel: #####
+##### Name of PKGBUILD, and/or pkgver/pkgrel: #####
 
 ##### Linux version: #####
 
