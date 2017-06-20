@@ -1,15 +1,14 @@
-<!-- Delete non-relevant parts if this is not a bug report -->
+<!-- Delete non-relevant parts if this is not a bug report, and please fill in all relevant items. -->
 
-#### Please fill in all relevant items: ####
+<!-- Linking to a specific commit is also helpful -->
+# Name of the PKGBUILD, and pkgver/pkgrel:
 
-##### Name of PKGBUILD, and/or pkgver/pkgrel: #####
+# Linux kernel version:
 
-##### Linux version: #####
+# Expected behavior:
 
-##### Expected behavior: #####
+# Actual behavior:
 
-##### Actual behavior: #####
+# Steps to reproduce the behavior:
 
-##### Steps to reproduce the behavior: #####
-
-##### Relevant log file output: #####
+# Relevant log file output:
