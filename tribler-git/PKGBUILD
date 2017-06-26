@@ -1,6 +1,6 @@
 # Maintainer: sum01 <sum01@protonmail.com>
 pkgname=tribler-git
-pkgver=r12762.6a9058e32
+pkgver=r12764.02a4fc969
 pkgrel=1
 pkgdesc="Privacy enhanced BitTorrent client with P2P content discovery."
 url="https://github.com/Tribler/tribler"
