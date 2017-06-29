@@ -10,7 +10,7 @@ depends=('libsodium' 'libtorrent-rasterbar' 'python2-pyqt5' 'qt5-svg' 'phonon-qt
 makedepends=('git')
 conflicts=('tribler')
 source=("git+https://github.com/Tribler/tribler.git")
-sha256sums=('SKIP')
+sha512sums=('SKIP')
 pkgver(){
   cd "$srcdir/tribler"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
