@@ -1,5 +1,6 @@
 # Maintainer: sum01 <sum01@protonmail.com>
 pkgname=tribler-git
+_srcname="tribler"
 pkgver=r12781.cddfbad06
 pkgrel=1
 pkgdesc="Privacy enhanced BitTorrent client with P2P content discovery."
@@ -12,21 +13,21 @@ conflicts=('tribler')
 source=("git+https://github.com/Tribler/tribler.git")
 sha512sums=('SKIP')
 pkgver(){
-  cd "$srcdir/tribler"
+  cd "$srcdir/$_srcname"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 prepare(){
-  cd "$srcdir/tribler/"
+  cd "$srcdir/$_srcname/"
   git submodule init
   git submodule update
 }
 package() {
-  cd "$srcdir/tribler"
+  cd "$srcdir/$_srcname"
   mkdir -p "$pkgdir"/usr/{bin,share/{applications,pixmaps,icons/hicolor/48x48/apps}}/
   install -m755 debian/bin/tribler "$pkgdir/usr/bin/"
   install -m644 Tribler/Main/Build/Ubuntu/tribler.desktop "$pkgdir/usr/share/applications/"
   install -m644 TriblerGUI/images/tribler.png "$pkgdir/usr/share/icons/hicolor/48x48/apps/"
   install -m644 Tribler/Main/Build/Ubuntu/tribler.xpm "$pkgdir/usr/share/pixmaps/"
   install -m644 Tribler/Main/Build/Ubuntu/tribler_big.xpm "$pkgdir/usr/share/pixmaps/"
-  mv "$srcdir/tribler" "$pkgdir/usr/share/"
+  mv "$srcdir/$_srcname" "$pkgdir/usr/share/"
 }
