@@ -2,7 +2,7 @@
 pkgname=tribler-git
 _srcname="tribler"
 pkgver=r12781.cddfbad06
-pkgrel=2
+pkgrel=1
 pkgdesc="Privacy enhanced BitTorrent client with P2P content discovery."
 url="https://github.com/Tribler/tribler"
 arch=('i686' 'x86_64')
