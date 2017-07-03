@@ -2,8 +2,8 @@
 PKGBUILD for installing the Tribler client.  
 Note that this is not the PKGBUILD in the AUR, but my improvement of it.  
 
-https://www.tribler.org  
-https://github.com/Tribler/tribler
+[Official site](https://www.tribler.org)    
+[Repo](https://github.com/Tribler/tribler)
 
 ## PKGBUILD Status -- Functional
 

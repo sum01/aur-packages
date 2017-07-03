@@ -1,8 +1,8 @@
 # Tribler-git
 PKGBUILD for installing the latest commit from Tribler devel branch.  
 
-https://www.tribler.org  
-https://github.com/Tribler/tribler
+[Official site](https://www.tribler.org)    
+[Repo](https://github.com/Tribler/tribler)
 
 ## PKGBUILD Status -- Working
 
