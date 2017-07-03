@@ -1,0 +1,35 @@
+# Maintainer: sum01 <sum01@protonmail.com>
+# Parts of this PKGBUKLD used/edited from https://aur.archlinux.org/packages/ckb-next-git/ -- credit to makz & Light2Yellow
+pkgname=ckb-next@fork_newapproachfixing97-git
+_srcname="ckb-next"
+pkgver=0.2.2.r319.g9f417210
+pkgrel=1
+pkgdesc="RGB Driver for Linux and OS X."
+url="https://github.com/frickler24/ckb-next/tree/newApproachFixing97"
+arch=('i686' 'x86_64')
+license=('GPL2')
+depends=('qt5-base' 'libpulse' 'libappindicator-gtk2')
+makedepends=('git')
+conflicts=('ckb-next' 'ckb-next-git' 'ckb-next-latest-git')
+provides=('ckb-next')
+source=("git+https://github.com/frickler24/ckb-next.git#branch=newApproachFixing97")
+sha512sums=('SKIP')
+pkgver() {
+  cd "$srcdir/$_srcname"
+  git describe --long | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+build() {
+  cd "$srcdir/$_srcname"
+  ./qmake-auto
+  make -j$(nproc --all)
+}
+package() {
+  cd "$srcdir/$_srcname"
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/lib/ckb-animations"
+  install -Dm755 bin/ckb{,-daemon} "$pkgdir/usr/bin/"
+  install -D bin/ckb-animations/* "$pkgdir/usr/lib/ckb-animations/"
+  install -Dm644 usr/ckb.png "$pkgdir/usr/share/icons/hicolor/512x512/apps/ckb.png"
+  install -Dm644 usr/ckb.desktop "$pkgdir/usr/share/applications/ckb.desktop"
+  install -Dm644 service/systemd/ckb-daemon.service "$pkgdir/usr/lib/systemd/system/ckb-daemon.service"
+}
