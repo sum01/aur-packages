@@ -1,7 +1,7 @@
 # Maintainer: sum01 <sum01@protonmail.com>
 pkgname=tribler-git
 _srcname="tribler"
-pkgver=r12781.cddfbad06
+pkgver=7.0.0.rc2.r105.gcddfbad06
 pkgrel=1
 pkgdesc="Privacy enhanced BitTorrent client with P2P content discovery."
 url="https://github.com/Tribler/tribler"
@@ -15,7 +15,7 @@ source=("git+https://github.com/Tribler/tribler.git")
 sha512sums=('SKIP')
 pkgver(){
   cd "$srcdir/$_srcname"
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 prepare(){
   cd "$srcdir/$_srcname/"
