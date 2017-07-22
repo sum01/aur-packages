@@ -1,7 +1,7 @@
 # Maintainer: sum01 <sum01@protonmail.com>
 pkgname=('vcash_cmake-test-git')
 _srcname=('vcash')
-pkgver=0.6.0.4.r58.g66ea27b
+pkgver=0.6.0.4.r60.ga984ff4
 pkgrel=1
 pkgdesc="A decentralized currency for the internet."
 arch=('i686' 'x86_64')
