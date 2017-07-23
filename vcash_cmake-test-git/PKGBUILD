@@ -1,18 +1,20 @@
 # Maintainer: sum01 <sum01@protonmail.com>
 pkgname=('vcash_cmake-test-git')
 _srcname=('vcash')
-pkgver=0.6.0.4.r60.ga984ff4
+pkgver=0.6.0.4.r61.gf4b9bf1
 pkgrel=1
 pkgdesc="A decentralized currency for the internet."
 arch=('i686' 'x86_64')
 url="https://github.com/openvcash/vcash"
 license=('AGPL3')
-depends=('db>=5.0.0' 'boost>=1.54.0'  'openssl-1.0')
+depends=('db>=5.0.0' 'boost>=1.54.0'  'openssl-1.0' 'jq')
 makedepends=('cmake>=3.1.3' 'make')
 conflicts=('vcash')
 provides=('vcash')
-source=("git+https://github.com/openvcash/vcash.git#branch=cmake-test")
-sha512sums=('SKIP')
+source=("git+https://github.com/openvcash/vcash.git#branch=cmake-test"
+"git+https://github.com/openvcash/vcash-bash-rpc.git")
+sha512sums=('SKIP'
+'SKIP')
 pkgver(){
   cd "$srcdir/$_srcname"
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
@@ -23,7 +25,8 @@ build() {
   make
 }
 package() {
-  install -Dsm644 "$srcdir/$_srcname/libcoin.a" "$pkgdir/usr/lib/$_srcname/libcoin.a"
-  install -Dsm644 "$srcdir/$_srcname/libdatabase.a" "$pkgdir/usr/lib/$_srcname/libdatabase.a"
+  install -Dsm644 "$srcdir/$_srcname/libcoin.a" "$pkgdir/usr/lib/libcoin.a"
+  install -Dsm644 "$srcdir/$_srcname/libdatabase.a" "$pkgdir/usr/lib/libdatabase.a"
   install -Dsm755 "$srcdir/$_srcname/vcashd" "$pkgdir/usr/bin/vcashd"
+  install -Dm755 "$srcdir/vcash-bash-rpc/rpc.sh" "$pkgdir/usr/lib/$_srcname/rpc.sh"
 }
