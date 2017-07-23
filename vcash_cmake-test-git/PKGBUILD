@@ -27,8 +27,6 @@ package() {
   install -Dsm644 "$srcdir/$_srcname/libdatabase.a" "$pkgdir/usr/lib/libdatabase.a"
   install -Dsm755 "$srcdir/$_srcname/vcashd" "$pkgdir/usr/bin/vcashd"
   install -Dm755 "$srcdir/$_srcname/rpc.sh" "$pkgdir/usr/lib/$_srcname/rpc.sh"
-  install -Dm644 "$srcdir/$_srcname/docs/BUILDING.md" "$pkgdir/usr/share/doc/$_srcname/BUILDING.md"
   install -Dm644 "$srcdir/$_srcname/docs/COMMON_ISSUES.md" "$pkgdir/usr/share/doc/$_srcname/COMMON_ISSUES.md"
-  install -Dm644 "$srcdir/$_srcname/docs/DEPENDENCIES.md" "$pkgdir/usr/share/doc/$_srcname/DEPENDENCIES.md"
   install -Dm644 "$srcdir/$_srcname/docs/RPC_SCRIPT.md" "$pkgdir/usr/share/doc/$_srcname/RPC_SCRIPT.md"
 }
