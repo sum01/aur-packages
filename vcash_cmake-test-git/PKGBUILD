@@ -1,14 +1,14 @@
 # Maintainer: sum01 <sum01@protonmail.com>
 pkgname=('vcash_cmake-test-git')
 _srcname=('vcash')
-pkgver=0.6.0.4.r63.g1980a12
+pkgver=0.6.0.4.r65.g2673cc2
 pkgrel=1
 pkgdesc="A decentralized currency for the internet."
 arch=('i686' 'x86_64')
 url="https://github.com/openvcash/vcash"
 license=('AGPL3')
 depends=('db>=5.0.0' 'boost>=1.54.0'  'openssl-1.0' 'jq')
-makedepends=('cmake>=3.1.3' 'make')
+makedepends=('cmake>=3.1.3' 'make' 'coreutils')
 conflicts=('vcash')
 provides=('vcash')
 source=("git+https://github.com/openvcash/vcash.git#branch=cmake-test")
@@ -19,14 +19,15 @@ pkgver(){
 }
 build() {
   cd "$srcdir/$_srcname"
-  cmake -DWITH_INCOMPATIBLE_BDB=ON -DOPENSSL_INCLUDE_DIR=/usr/include/openssl-1.0 -DOPENSSL_SSL_LIBRARY=/usr/lib/libssl.so.1.0.0 -DOPENSSL_CRYPTO_LIBRARY=/usr/lib/libcrypto.so.1.0.0
-  make
+  cmake -DWITH_INCOMPATIBLE_BDB=ON -DOPENSSL_INCLUDE_DIR=/usr/include/openssl-1.0 \
+        -DOPENSSL_SSL_LIBRARY=/usr/lib/libssl.so.1.0.0 -DOPENSSL_CRYPTO_LIBRARY=/usr/lib/libcrypto.so.1.0.0 \
+        -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_BINDIR=bin -DCMAKE_INSTALL_LIBDIR=lib
+  make -j$(nproc)
 }
 package() {
-  install -Dsm644 "$srcdir/$_srcname/libcoin.a" "$pkgdir/usr/lib/libcoin.a"
-  install -Dsm644 "$srcdir/$_srcname/libdatabase.a" "$pkgdir/usr/lib/libdatabase.a"
-  install -Dsm755 "$srcdir/$_srcname/vcashd" "$pkgdir/usr/bin/vcashd"
+  cd "$srcdir/$_srcname"
+  make DESTDIR="$pkgdir" install
   install -Dm755 "$srcdir/$_srcname/rpc.sh" "$pkgdir/usr/lib/$_srcname/rpc.sh"
-  install -Dm644 "$srcdir/$_srcname/docs/COMMON_ISSUES.md" "$pkgdir/usr/share/doc/$_srcname/COMMON_ISSUES.md"
-  install -Dm644 "$srcdir/$_srcname/docs/RPC_SCRIPT.md" "$pkgdir/usr/share/doc/$_srcname/RPC_SCRIPT.md"
+  mkdir -p "$pkgdir/usr/share/doc"
+  cp -r "$srcdir/$_srcname/docs" "$pkgdir/usr/share/doc/$_srcname"
 }
