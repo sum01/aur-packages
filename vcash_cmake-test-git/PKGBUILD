@@ -21,7 +21,7 @@ build() {
   cd "$srcdir/$_srcname"
   cmake -DWITH_INCOMPATIBLE_BDB=ON -DOPENSSL_INCLUDE_DIR=/usr/include/openssl-1.0 \
         -DOPENSSL_SSL_LIBRARY=/usr/lib/libssl.so.1.0.0 -DOPENSSL_CRYPTO_LIBRARY=/usr/lib/libcrypto.so.1.0.0 \
-        -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_BINDIR=bin -DCMAKE_INSTALL_LIBDIR=lib
+        -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_BINDIR=bin -DCMAKE_INSTALL_LIBDIR=lib/vcash
   make -j$(nproc)
 }
 package() {
