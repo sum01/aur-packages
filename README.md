@@ -22,10 +22,10 @@ Open your terminal, and run the following commands...
 cd ~/Downloads
 git clone https://github.com/sum01/aur-packages.git
 cd aur-packages/NameOfProjectHere/
-makepkg -csi PKGBUILD
+makepkg -csif PKGBUILD
 ```
 
-#### Updating Old Folder
+#### Continued Use
 Run the following commands (assuming you still have the `aur-packages` folder) to update to the newest files, and download/update your package(s)...
 ```
 cd ~/Downloads/aur-packages/
