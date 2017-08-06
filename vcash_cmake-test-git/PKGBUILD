@@ -1,13 +1,13 @@
 # Maintainer: sum01 <sum01@protonmail.com>
 pkgname=('vcash_cmake-test-git')
 _srcname="vcash"
-pkgver=0.6.0.4.r68.gd976e6c
+pkgver=0.6.0.4.r69.g996fef0
 pkgrel=1
 pkgdesc="A decentralized currency for the internet."
 arch=('i686' 'x86_64')
 url="https://github.com/openvcash/vcash"
 license=('AGPL3')
-depends=('db>=5.0.0' 'boost>=1.54.0'  'openssl-1.0' 'jq' 'curl')
+depends=('db>=5.0.0' 'db<=6.1.36' 'boost>=1.54.0'  'openssl-1.0' 'jq' 'curl')
 makedepends=('cmake>=3.1.3' 'make' 'coreutils')
 conflicts=('vcash')
 provides=('vcash')
