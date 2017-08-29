@@ -8,11 +8,7 @@ After the upload the the AUR, I will remove it from this git.
 *   The `git` package. You can install it with the `sudo pacman -S git` command.
 
 ### How To Use
-**Replace `nameOfProject` with whatever PKGBUILD folder you want.**   
-*   Example: `cd aur-packages/tribler/`
-  * PS: File paths are case-sensitive.  
-
-Run the following commands in your terminal...
+Run the following commands in your terminal, but remember to replace `NameOfProjectHere` with the folder you want...
 ```
 git clone https://github.com/sum01/aur-packages.git
 cd aur-packages/NameOfProjectHere/
