@@ -1,7 +1,7 @@
 # Maintainer: sum01 <sum01@protonmail.com>
-pkgname=('vcash_cmake-test-git')
+pkgname=vcash-cmake-test-git
 _srcname="vcash"
-pkgver=0.6.0.4.r69.g996fef0
+pkgver=0.6.0.4.r71.g3ec7204
 pkgrel=1
 pkgdesc="A decentralized currency for the internet."
 arch=('i686' 'x86_64')
@@ -29,5 +29,5 @@ package() {
   make DESTDIR="$pkgdir" install
   install -Dm755 "$srcdir/$_srcname/rpc.sh" "$pkgdir/usr/lib/$_srcname/rpc.sh"
   mkdir -p "$pkgdir/usr/share/doc"
-  cp -r "$srcdir/$_srcname/docs" "$pkgdir/usr/share/doc/$_srcname"
+  mv "$srcdir/$_srcname/docs" "$pkgdir/usr/share/doc/$_srcname"
 }
