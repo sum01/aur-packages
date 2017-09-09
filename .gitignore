@@ -1,3 +1,7 @@
 */**
 !*/PKGBUILD
-!*/README.md
+!*/*.md
+!*/*.desktop
+!*/*.install
+!*/*.sh
+!*/*.patch
