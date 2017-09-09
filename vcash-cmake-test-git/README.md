@@ -1,6 +1,3 @@
-# Vcash-cmake
-PKGBUILD for installing the latest commit from Vcash cmake-test branch.  
+Installs the latest commit from [Vcash cmake-test branch](https://github.com/openvcash/vcash/tree/cmake-test).  
 
-[Repo](https://github.com/openvcash/vcash/tree/cmake-test)
-
-## PKGBUILD Status -- Working
+# Status - Working
