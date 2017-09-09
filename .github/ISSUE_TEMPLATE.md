@@ -1,9 +1,9 @@
 <!-- Delete non-relevant parts if this is not a bug report, and please fill in all relevant items. -->
 
-<!-- Linking to a specific commit is also helpful -->
-**Name of the PKGBUILD, and pkgver/pkgrel:**
+<!-- Always run `sudo pacman -Syu` before submitting an issue, as sometimes that's all you need. -->
 
-**Linux kernel version:**
+<!-- Linking to a specific commit is also fine -->
+**Name of the PKGBUILD, and pkgver/pkgrel:**
 
 **Expected behavior:**
 
