@@ -12,7 +12,7 @@ Run the following commands in your terminal, replacing `NameOfProjectHere` with 
 ```bash
 git clone https://github.com/sum01/aur-packages.git
 cd aur-packages/NameOfProjectHere/
-makepkg -csif PKGBUILD
+makepkg -csifr PKGBUILD
 ```
 
 If you've already ran the `git clone` command once, you can update the folder by running `git pull` from inside the folder.
