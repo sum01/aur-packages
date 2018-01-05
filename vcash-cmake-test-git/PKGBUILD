@@ -1,31 +1,36 @@
 # Maintainer: sum01 <sum01@protonmail.com>
 pkgname=vcash-cmake-test-git
 _srcname="vcash"
-pkgver=0.6.0.4.r32.gd943120
+pkgver=0.6.0.4.r36.g2161373
 pkgrel=1
 pkgdesc="A decentralized currency for the internet."
 arch=('i686' 'x86_64')
 url="https://github.com/openvcash/vcash"
 license=('AGPL3')
-depends=('db>=5.0.0' 'db<=6.1.36' 'boost>=1.54.0'  'openssl-1.0')
+depends=('db>=5.0.0' 'db<=6.1.36' 'boost>=1.54.0' 'openssl-1.0')
 makedepends=('cmake>=3.1.0' 'make' 'coreutils' 'sed' 'git')
 optdepends=('jq: for vcashrpc' 'curl: for vcashrpc')
 conflicts=('vcash')
 provides=('vcash')
 source=("git+https://github.com/openvcash/vcash.git#branch=cmake-test")
 sha512sums=('SKIP')
-pkgver(){
+pkgver() {
   cd "$srcdir/$_srcname"
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
-build() {
+prepare() {
   cd "$srcdir/$_srcname"
+  git submodule update --init --recursive
+}
+build() {
+  mkdir -p "$srcdir/$_srcname/build"
+  cd "$srcdir/$_srcname/build"
   cmake -DWITH_INCOMPATIBLE_BDB=ON -DOPENSSL_INCLUDE_DIR=/usr/include/openssl-1.0 \
-  -DOPENSSL_SSL_LIBRARY=/usr/lib/libssl.so.1.0.0 -DOPENSSL_CRYPTO_LIBRARY=/usr/lib/libcrypto.so.1.0.0 \
-  -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib
+    -DOPENSSL_SSL_LIBRARY=/usr/lib/libssl.so.1.0.0 -DOPENSSL_CRYPTO_LIBRARY=/usr/lib/libcrypto.so.1.0.0 \
+    -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib ..
   make -j$(nproc)
 }
 package() {
-  cd "$srcdir/$_srcname"
+  cd "$srcdir/$_srcname/build"
   make DESTDIR="$pkgdir" install
 }
