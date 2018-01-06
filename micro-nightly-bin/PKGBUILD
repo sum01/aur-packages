@@ -1,0 +1,31 @@
+# Maintainer: tommyshem
+# Contributor: sum01 <sum01@protonmail.com>
+# Previous Maintainer: Atnanasis <ys2000pro@gmail.com>
+# Contributor: Youngbin Han <sukso96100@gmail.com>
+pkgname=micro-nightly-bin
+pkgver=1.3.5_dev.51
+# The actual version has a dash
+_pkgver=${pkgver//_/-}
+pkgrel=1
+pkgdesc="A modern and intuitive terminal-based text editor"
+arch=('x86_64' 'i686')
+url="https://github.com/zyedidia/micro"
+license=('MIT')
+makedepends=('curl' 'grep' 'coreutils')
+optdepends=('xclip: for copying to and from the terminal')
+conflicts=('micro')
+provides=('micro')
+source_x86_64=("https://github.com/zyedidia/micro/releases/download/nightly/micro-${_pkgver}-linux64.tar.gz")
+source_i686=("https://github.com/zyedidia/micro/releases/download/nightly/micro-${_pkgver}-linux32.tar.gz")
+sha512sums_x86_64=('SKIP')
+sha512sums_i686=('SKIP')
+pkgver() {
+  # Pull the nightly page, parse out the version number
+  _results=$(curl 'https://api.github.com/repos/zyedidia/micro/releases/tags/nightly' | tac | tac | grep -oEm 1 '[0-9]+\.[0-9]+\.[0-9]+\-dev\.[0-9]+')
+  # Doesn't allow a dash in the pkgver, so replace with underscore
+  echo ${_results//-/_}
+}
+package() {
+  install -Dsm755 $srcdir/micro-${_pkgver}/micro "$pkgdir/usr/bin/micro"
+  install -Dm644 $srcdir/micro-${_pkgver}/LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
