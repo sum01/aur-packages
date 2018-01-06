@@ -15,22 +15,22 @@ provides=('vcash')
 source=("git+https://github.com/openvcash/vcash.git#branch=cmake-test")
 sha512sums=('SKIP')
 pkgver() {
-  cd "$srcdir/$_srcname"
-  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+	cd "$srcdir/$_srcname"
+	git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 prepare() {
-  cd "$srcdir/$_srcname"
-  git submodule update --init --recursive
+	cd "$srcdir/$_srcname"
+	git submodule update --init --recursive
 }
 build() {
-  mkdir -p "$srcdir/$_srcname/build"
-  cd "$srcdir/$_srcname/build"
-  cmake -DWITH_INCOMPATIBLE_BDB=ON -DOPENSSL_INCLUDE_DIR=/usr/include/openssl-1.0 \
-    -DOPENSSL_SSL_LIBRARY=/usr/lib/libssl.so.1.0.0 -DOPENSSL_CRYPTO_LIBRARY=/usr/lib/libcrypto.so.1.0.0 \
-    -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib ..
-  make -j$(nproc)
+	mkdir -p "$srcdir/$_srcname/build"
+	cd "$srcdir/$_srcname/build"
+	cmake -DWITH_INCOMPATIBLE_BDB=ON -DOPENSSL_INCLUDE_DIR=/usr/include/openssl-1.0 \
+		-DOPENSSL_SSL_LIBRARY=/usr/lib/libssl.so.1.0.0 -DOPENSSL_CRYPTO_LIBRARY=/usr/lib/libcrypto.so.1.0.0 \
+		-DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib ..
+	make -j$(nproc)
 }
 package() {
-  cd "$srcdir/$_srcname/build"
-  make DESTDIR="$pkgdir" install
+	cd "$srcdir/$_srcname/build"
+	make DESTDIR="$pkgdir" install
 }
