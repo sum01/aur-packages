@@ -13,14 +13,11 @@ makedepends=('grep' 'wget' 'tar')
 optdepends=('xclip: for copying to and from the terminal')
 conflicts=('micro')
 provides=('micro')
-# source=("https://github.com/zyedidia/micro/releases/download/nightly/micro-${_pkgver}-linux64.tar.gz")
 source=('https://api.github.com/repos/zyedidia/micro/releases/tags/nightly')
 noextract=('https://api.github.com/repos/zyedidia/micro/releases/tags/nightly')
 sha512sums=('SKIP')
 pkgver() {
-	# Parse out the version number
-	_results=$(grep -oEm 1 '[0-9]+\.[0-9]+\.[0-9]+\-[0-9]+' "$srcdir/nightly")
-	# Doesn't allow a dash in the pkgver, so replace with underscore
+	_results=$(grep -oEm 1 '[0-9]+\.[0-9]+\.[0-9]+\-[0-9]+|[0-9]+\.[0-9]+\.[0-9]+\-dev\.[0-9]+' "$srcdir/nightly")
 	echo ${_results//-/_}
 }
 package() {
@@ -30,7 +27,6 @@ package() {
 	else
 		_bits="64"
 	fi
-	# The actual version has a dash
 	_pkgver=${pkgver//_/-}
 	wget "https://github.com/zyedidia/micro/releases/download/nightly/micro-${_pkgver}-linux${_bits}.tar.gz"
 	tar -xvf "micro-${_pkgver}-linux${_bits}.tar.gz"
