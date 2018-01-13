@@ -3,7 +3,7 @@
 # Previous Maintainer: Atnanasis <ys2000pro@gmail.com>
 # Contributor: Youngbin Han <sukso96100@gmail.com>
 pkgname=micro-nightly-bin
-pkgver=1.3.5_67
+pkgver=1.3.5.68
 pkgrel=1
 pkgdesc="A modern and intuitive terminal-based text editor"
 arch=('x86_64' 'i686')
@@ -17,8 +17,7 @@ source=('https://api.github.com/repos/zyedidia/micro/releases/tags/nightly')
 noextract=('https://api.github.com/repos/zyedidia/micro/releases/tags/nightly')
 sha512sums=('SKIP')
 pkgver() {
-	_results=$(grep -oEm 1 '[0-9]+\.[0-9]+\.[0-9]+\-[0-9]+|[0-9]+\.[0-9]+\.[0-9]+\-dev\.[0-9]+' "$srcdir/nightly")
-	echo ${_results//-/_}
+	grep -oEm 1 '[0-9]+\.[0-9]+\.[0-9]+\-(dev\.)?[0-9]+' "$srcdir/nightly" | sed -E 's/\-(dev\.)?/\./'
 }
 package() {
 	cd "$srcdir"
@@ -27,9 +26,9 @@ package() {
 	else
 		_bits="64"
 	fi
-	_pkgver=${pkgver//_/-}
-	wget "https://github.com/zyedidia/micro/releases/download/nightly/micro-${_pkgver}-linux${_bits}.tar.gz"
-	tar -xvf "micro-${_pkgver}-linux${_bits}.tar.gz"
-	install -Dsm755 $srcdir/micro-${_pkgver}/micro "$pkgdir/usr/bin/micro"
-	install -Dm644 $srcdir/micro-${_pkgver}/LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+	_rawpkgver=$(grep -oEm 1 '[0-9]+\.[0-9]+\.[0-9]+\-(dev\.)?[0-9]+' "$srcdir/nightly")
+	wget "https://github.com/zyedidia/micro/releases/download/nightly/micro-${_rawpkgver}-linux${_bits}.tar.gz"
+	tar -xvf "micro-${_rawpkgver}-linux${_bits}.tar.gz"
+	install -Dsm755 "$srcdir/micro-${_rawpkgver}/micro" "$pkgdir/usr/bin/micro"
+	install -Dm644 "$srcdir/micro-${_rawpkgver}/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
